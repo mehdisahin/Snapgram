@@ -42,7 +42,6 @@ const SignupForm = () => {
         title: "Sign up failed, Please try again.",
       });
     }
-    // const session = await signInAccount()
 
     return (
       <Form {...form}>
