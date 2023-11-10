@@ -1,7 +1,7 @@
 import React from "react";
 
 const Bottombar = () => {
-  return <div>Bottombar</div>;
+  return <div></div>;
 };
 
 export default Bottombar;
