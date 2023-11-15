@@ -1,6 +1,5 @@
 import { formatDateString } from "@/lib/utils";
 import { Models } from "appwrite";
-import { type } from "os";
 import { Link } from "react-router-dom";
 
 type PostCardProps = {

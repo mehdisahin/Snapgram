@@ -2,7 +2,7 @@ import {
   useQuery,
   useMutation,
   useQueryClient,
-  useInfiniteQuery,
+  // useInfiniteQuery,
 } from "@tanstack/react-query";
 import {
   createPost,
@@ -11,7 +11,6 @@ import {
   signInAccount,
   signOutAccount,
 } from "../appwrite/api";
-import { User } from "lucide-react";
 import { INewPost, INewUser } from "@/types";
 import { QUERY_KEYS } from "./queryKeys";
 
