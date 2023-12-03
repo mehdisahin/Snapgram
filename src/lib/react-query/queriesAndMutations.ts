@@ -28,8 +28,7 @@ export const useCreateUserAccount = () => {
 };
 export const useSignInAccount = () => {
   return useMutation({
-    mutationFn: (user: { email: string; password: string }) =>
-      signInAccount(user),
+    mutationFn: (user: { email: string; password: string }) => signInAccount(user),
   });
 };
 export const useSignOutAccount = () => {
@@ -57,13 +56,8 @@ export const useGetRecentPosts = () => {
 export const useLikePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({
-      postId,
-      likesArray,
-    }: {
-      postId: string;
-      likesArray: string[];
-    }) => likePost(postId, likesArray),
+    mutationFn: ({ postId, likesArray }: { postId: string; likesArray: string[] }) =>
+      likePost(postId, likesArray),
     onSuccess: (data) => {
       queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.GET_POST_BY_ID, data?.$id],
