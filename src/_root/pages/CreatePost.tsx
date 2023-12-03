@@ -1,22 +1,23 @@
 import PostForm from "@/components/forms/PostForm";
+import { useGetPostById } from "@/lib/react-query/queriesAndMutations";
+import { Loader } from "lucide-react";
+import { useParams } from "react-router-dom";
 
-const CreatePost = () => {
+const EditPost = () => {
+  const { id } = useParams();
+  const { data: post, isPending } = useGetPostById(id || "");
+  if (isPending) return <Loader />;
   return (
     <div className="flex flex-1">
       <div className="common-container">
         <div className="max-2-5xl flex-start gap-3 justify-start w-full">
-          <img
-            src="/assets/icons/add-post.svg"
-            alt="add"
-            width={36}
-            height={36}
-          />
-          <h2 className="h3-bold md:h2-bold text-left w-full">Create Post</h2>
+          <img src="/assets/icons/add-post.svg" alt="add" width={36} height={36} />
+          <h2 className="h3-bold md:h2-bold text-left w-full">Edit Post</h2>
         </div>
-        <PostForm action="Create" />
+        <PostForm action="Update" post={post} />
       </div>
     </div>
   );
 };
 
-export default CreatePost;
+export default EditPost;

@@ -1,20 +1,21 @@
-import { bottombarLinks } from "@/constans";
-import { INavLink } from "@/types";
 import { Link, useLocation } from "react-router-dom";
+
+import { bottombarLinks } from "@/constants";
 
 const Bottombar = () => {
   const { pathname } = useLocation();
+
   return (
     <section className="bottom-bar">
       {bottombarLinks.map((link) => {
         const isActive = pathname === link.route;
         return (
           <Link
+            key={`bottombar-${link.label}`}
             to={link.route}
-            className={` ${
-              isActive && "bg-primary-500 rounded-[10px]"
+            className={`${
+              isActive && "rounded-[10px] bg-primary-500 "
             } flex-center flex-col gap-1 p-2 transition`}
-            key={link.label}
           >
             <img
               src={link.imgURL}
@@ -23,7 +24,8 @@ const Bottombar = () => {
               height={16}
               className={`${isActive && "invert-white"}`}
             />
-            <p className="tiny-medium tex-light-2">{link.label}</p>
+
+            <p className="tiny-medium text-light-2">{link.label}</p>
           </Link>
         );
       })}

@@ -5,11 +5,7 @@ import { Loader } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const {
-    data: posts,
-    isPending: isPostLoading,
-    isError: isErrorPosts,
-  } = useGetRecentPosts();
+  const { data: posts, isPending: isPostLoading, isError: isErrorPosts } = useGetRecentPosts();
   return (
     <div className="flex flex-1">
       <div className="home-container">
