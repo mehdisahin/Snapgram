@@ -7,6 +7,8 @@ import { GridPostList, PostStats } from "@/components/shared";
 // import { useGetPostById, useGetUserPosts, useDeletePost } from "@/lib/react-query/queries";
 import { multiFormatDateString } from "@/lib/utils";
 import { useUserContext } from "@/context/AuthContext";
+import { Button } from "@/components/ui";
+import { useDeletePost, useGetPostById } from "@/lib/react-query/queries";
 
 const PostDetails = () => {
   const navigate = useNavigate();
@@ -107,3 +109,6 @@ const PostDetails = () => {
 };
 
 export default PostDetails;
+function useGetUserPosts($id: any): { data: any; isLoading: any } {
+  throw new Error("Function not implemented.");
+}
